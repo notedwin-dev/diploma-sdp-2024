@@ -1,0 +1,75 @@
+button {
+	background-color: #bfe6f3;
+	color: rgb(0, 0, 0);
+	padding: 5px 9px;
+	border:none;
+	border-radius: 3px;
+	cursor: pointer;
+	font-family: Times New Roman;
+	font-size: 16px;
+	margin: 0 auto; /* Center the button in its column */
+	display: block; /* Ensure the button takes full width */
+	transition: background-color 0.3s; /* Add transition for smooth color change */
+	margin-bottom: 10px; /* Add a margin at the bottom */
+}
+
+button:hover {
+	background-color: #6597a9; /* Change color on hover */
+}
+
+/* Style for the container of the any buttons after the table*/
+.buttons-row {
+	display: flex; /* Use flexbox to create a flexible container */
+	justify-content: center; /* Align the items at the center of the container */
+}
+
+input.custom-button,
+button.custom-button,
+.buttons-row button {
+	background-color: #bfe6f3; /* Set a common background color */
+	color: rgb(0, 0, 0);
+	padding: 5px 12px;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 16px;
+	margin: 5px; /* Adjust margin as needed */
+	transition: background-color 0.3s;
+}
+
+/*Style the button dividually after the table*/
+.print:hover, 
+.back:hover, 
+.submit:hover, 
+.comment:hover, 
+.confirm:hover, 
+.approve:hover,
+.reject:hover,
+input.custom-button:hover,
+button.custom-button:hover{
+	background-color: #6597a9; /* Change color on hover */
+}
+
+/* Back button styling */
+input.custom-button {
+	width: 60px; /* Set a fixed width for the back button */
+}
+
+/* Container styling for centering and spacing */
+.button-container {
+	text-align: center;
+	margin-top: 10px;
+}
+
+.button-container button.custom-button {
+	margin: 0 5px; /* Adjust margin between buttons */
+}
+
+.button-container input.custom-button {
+	margin: 0 5px; /* Adjust margin between buttons */
+	width: 60px; /* Set a fixed width for input */
+}
+
+
+

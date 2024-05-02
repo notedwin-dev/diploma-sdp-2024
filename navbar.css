@@ -1,0 +1,118 @@
+body {
+	width: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+	background-image: url(networking.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	background-color: #dddddd;
+	border-bottom: 1px solid #E0FFFF;
+	height: 65px;
+	z-index: 5;
+	position: fixed; /* Set the navbar to fixed position */
+	top: 0; /* Position the navbar at the top of the page */
+	width: 100%; /* Full width */
+}
+
+.name {
+    margin-right: auto;
+}
+
+.header {
+	font-family: Times New Roman;
+    background-color: #044766;
+    text-align: center;
+	display:flex; /* Added */
+	align-items:center; /* Added */
+	justify-content:center; /* Added for horizontal centering if needed */
+	width:200px;
+	height: 65px;
+
+}
+
+ul {
+	list-style-type:none;
+	margin :0 ;
+	padding :0 ;
+	display :flex ;
+	width :95% ;
+	background-color :#044766 ;
+
+}
+li{
+	font-family: Times New Roman;
+	margin-right :10px ;
+	position:relative ;
+	width :100% ;
+	text-align:center ; 
+	height :65px ; 
+	display:flex ; /* Added */
+	align-items:center ; /* Added */
+	justify-content: center; /* Added */
+}
+
+a {
+    text-decoration: none;
+    color: #FFFFFF;
+    display: inline-block;
+    width: 100%;
+}
+
+ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #044766;
+    width: 100%;
+}
+
+ul ul li{
+	border-top: 1px solid white;
+}
+
+ul li a {
+    transition: color 0.3s ease, text-decoration 0.3s ease; /* Added transition property */
+}
+
+li:hover > ul {
+    display: flex;
+    flex-direction: column;
+}
+
+ul li a:hover{
+	color: #89B8CA;
+	text-decoration: underline;
+}
+
+div.content{
+	padding-top: 15px;
+	margin-top: 55px; /* Add a top margin to avoid content overlay */
+	z-index: 1;
+	position: relative;
+}
+
+.signup-text {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 10px; /* Adjust the margin as needed */
+}
+
+.signup-text a {
+    color: #E0FFFF;
+    text-decoration: underline;
+	display: inline;
+}
+
+.signup-text a:hover {
+    color: #044766;
+}

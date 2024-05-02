@@ -1,0 +1,101 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	width: 100%;
+	height: 100vh;
+	background-image: url(networking.jpg);
+	background-size: cover;
+	background-position: center;
+	position: relative;	
+}
+
+ul{
+	text-transform: uppercase;
+	list-style: none;
+	line-height: 65px;
+	text-align: center;
+	margin: 0px;
+	padding-top: 0px;
+	position: relative;
+	display: inline;
+	float: right;
+}
+
+ul li{
+	line-height: 65px;
+	width: 120px;
+	position: relative;
+	float: left;
+	display: inline;
+	margin: 0;
+}
+
+ul li a{
+	font-family: cambria;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	text-decoration: none;
+	padding: 8px 20px;
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 50px;
+}
+
+div.menu{
+	list-style: none;
+	z-index: 5;
+}
+
+div.header {
+	height: 60px;
+	border: none;
+	display: inline;
+	width: 340px;
+	z-index: 2;
+	position: relative;
+	
+	line-height: 65px;
+	padding: 8px 20px;
+	color: white;
+	font-family: cambria;
+	font-size:35px;
+	font-weight: bold;
+	text-align: center;
+}
+
+div.container{
+	width: 50%;
+	height: calc(100%);
+	background: rgba(86,86,86,0.3);
+	backdrop-filter: blur(10px);
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+}
+
+div.info{
+	width: 550px;
+	color: white;
+	position: absolute;
+	right: 0;
+	top: 40%;
+	transform: traslateY(-50%);
+	font-family: cambria;
+}
+
+.info h1{
+	font-size: 60px;
+}
+
+.info p{
+	color: white;
+	font-size: 15px;
+	margin: 20px 0;
+	line-height: 18px;
+}

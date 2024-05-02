@@ -1,0 +1,77 @@
+body {
+	font-family: 'Times New Roman', Times, serif;
+}
+
+caption {
+	font-size: 1.3em;
+	font-weight: bold;
+	margin-bottom: 12px;
+	color: #ffffff;
+}
+
+.content {
+	margin: 20px;   
+}
+
+table {
+	border-collapse:separate;
+	width: 70%;
+	margin: 20px auto; /* Center the table with auto margins */
+	margin-bottom: 20px; /* Add a margin at the bottom */
+}
+
+th, td {
+	border: 1px solid #9b9595;
+	padding: 8px;
+	text-align: left;
+	border-bottom: 1px solid #161414;
+}
+
+th {
+	background-color: #9fc8da;
+	text-align:center;
+}
+
+td, tr{
+	background-color:#ffffff;
+}
+
+/* This is when lecture add the comments*/
+textarea{
+	width:100%;
+	cursor: pointer;
+	box-shadow: 2px 2px 5px #888888;
+	font-family:Georgia, 'Times New Roman', Times, serif;
+	font-size: 14px;
+}
+
+.profile td:first-child {
+	color: white;
+	background-color: #367896;
+	width: 30%; 
+}
+
+.profile td {
+	background-color: #E0FFFF;
+	width: 70%;
+	max-width: 70%;
+}
+
+.link a {
+	display: inline;
+	color: #51b4e1; 
+	text-decoration: underline; 
+}
+
+.link a:hover {
+	color: #E0FFFF; 
+}
+
+h1 {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	color: white;
+	margin-bottom: 10px;
+}
