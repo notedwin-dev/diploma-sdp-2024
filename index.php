@@ -16,8 +16,8 @@
 		</div>
 	
 		<ul>
-			<li><a href="sign_in.php">SignIn</a></li>
-			<li><a href="sign_up.php">SignUp</a></li>
+			<li><a href="sign_in.php">Sign In</a></li>
+			<li><a href="select-role.php">Sign Up</a></li>
 		</ul>
 	</div>
 	

@@ -20,7 +20,7 @@
         if ($role == 'lecturer') {
             header('location:sign_up.php?role=lecturer');
         } else if ($role == 'student') {
-            header('location:sign_up.php??role=student');
+            header('location:sign_up.php?role=student');
         }
     }
     ?>
