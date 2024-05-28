@@ -88,7 +88,7 @@
 <link rel="stylesheet" href="button.css">
 <center>
 <div class="container">
-	<img src='networkinsight.png'>
+	<img src='logo.png'>
     <h3 class="header">
 		<?php echo $title; ?>
 	</h3>

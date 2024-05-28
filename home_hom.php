@@ -5,6 +5,6 @@
 
 <div class="content">
 	<center>
-		<img src="networkinsight.png"><br>
+		<img src="logo.png"><br>
 	</center>
 </div>

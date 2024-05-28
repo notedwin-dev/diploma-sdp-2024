@@ -89,7 +89,7 @@
 <link rel="stylesheet" href="button.css">
 <link rel="stylesheet" href="form2.css">
 <center>
-	<img src='networkinsight.png'>
+	<img src='logo.png'>
     <h3 class="header">Sign In</h3>
     <form action="sign_in.php" method="post" class="form">
 		<table>
