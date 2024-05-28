@@ -10,23 +10,7 @@
 	include('connection.php');
 	include('footer.php');
 	
-	//Function to generate random student ID
-	function generateRandomStudentID($connection) {
-		//Fixed prefix "TP"
-		$prefix = "TP";
-
-		do {
-			//Generate random 6-digit number
-			$randomNumber = str_pad(mt_rand(1, 999999), 6, '0', STR_PAD_LEFT);
-
-			//Concatenate prefix and random number
-			$studentID = $prefix . $randomNumber;
-		} while (isStudentIDTaken($connection, $studentID));
-
-		return $studentID;
-	}
-	
-	//Function to check if the generated student ID exists in the database
+	//Function to check if the student ID exists in the database
 	function isStudentIDTaken($connection, $studentID) {
 		$query = "SELECT COUNT(*) as count FROM student WHERE StuID = '$studentID'";
 		$result = mysqli_query($connection, $query);
@@ -40,20 +24,53 @@
 		return false;
 	}
 
+	if(isset($_GET['role'])){
+		//Get the role from URL parameter
+		$role = $_GET['role'];
+
+		//modify the title based on the role
+		if ($role == 'student') {
+			$title = "Student Sign Up";
+			$id_label = "Student ID";
+			$id_name = "StuID";
+			$user_name = "StuName";
+			$user_email = "StuEmail";
+			$user_gender = "StuGender";
+			$user_dob = "StuDob";
+			$user_password = "StuPw";
+			$user_edu = "StuEdu";
+		} else if ($role == 'lecturer') {
+			$title = "Lecturer Sign Up";
+			$id_label = "Lecturer ID";
+			$id_name = "LecID";
+			$user_name = "LecName";
+			$user_email = "LecEmail";
+			$user_gender = "LecGender";
+			$user_dob = "LecDob";
+			$user_password = "LecPw";
+			$user_edu = "LecEduQua";
+			$user_type = "LecType";
+		}
+	}
+
 	if(isset($_POST['signup'])){
-		$StuID = $_POST["StuID"];
-		$StuName = $_POST["StuName"];
-		$StuPw = $_POST["StuPw"];
-		$StuEmail = $_POST["StuEmail"];
-		$StuGender = $_POST["StuGender"];
-		$StuDob = $_POST["StuDob"];
-		$StuUni = $_POST["StuUni"];
+		$ID = $_POST[$id_name];
+		$Name = $_POST[$user_name];
+		$Pw = $_POST[$user_password];
+		$Email = $_POST[$user_email];
+		$Gender = $_POST[$user_gender];
+		$Dob = $_POST[$user_dob];
+		$Uni = $_POST[$user_edu];
 		//Check if the password and confirm password match
 		$confirmPassword = $_POST["confirmPassword"];
-		if ($StuPw != $confirmPassword) {
+		if ($Pw != $confirmPassword) {
 			echo "<script>alert('Password and Confirm Password do not match. Please try again.')</script>";
 		} else {
-			$sql = "INSERT INTO student VALUES('$StuID','$StuName','$StuPw','$StuEmail','$StuDob','$StuGender','$StuUni')";
+
+			if ($user_type == "LecType") {
+				$sql = "INSERT INTO $role VALUES('$ID','$Name','$Pw','$Email','$Gender','$Dob','$Uni', '$user_type')";
+			}
+			$sql = "INSERT INTO $role VALUES('$ID','$Name','$Pw','$Email','$Dob','$Gender','$Uni')";
 			$result = mysqli_query($connection, $sql);
 			if($result) {
 				echo "<script>alert('Congratulations! Your Account Has Been Successfully Created!')</script>";
@@ -72,39 +89,57 @@
 <center>
 <div class="container">
 	<img src='networkinsight.png'>
-    <h3 class="header">Sign up</h3>
+    <h3 class="header">
+		<?php echo $title; ?>
+	</h3>
     <form class="form" method="post">
 	<p>Create an account to learn more now!</p>
         <table>
             <tr>
-                <td>Student ID</td>
-                <td><input type="text" name="StuID" value="<?php echo generateRandomStudentID($connection); ?>" readonly></td>
+                <td>
+					<?php echo $id_label; ?>
+				</td>
+                <td><input type="text" 
+				name=
+				<?php echo 
+					$id_name; 
+				?> value=""></td>
             </tr>
             <tr>
                 <td>Name</td>
-                <td><input type="text" name="StuName" required></td>
+                <td><input type="text" name=<?php echo 
+				$user_name; ?> required></td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td><input type="email" name="StuEmail" required></td>
+                <td><input type="email" name=<?php echo 
+				$user_email; ?> required></td>
             </tr>
             <tr>
                 <td>Gender</td>
                 <td>
-                    <input type="radio" name="StuGender" value="F" id="femaleRadio" required>
+                    <input type="radio" name=<?php
+						echo $user_gender;
+					?> value="F" id="femaleRadio" required>
 					<label for="femaleRadio">Female</label>
-					<input type="radio" name="StuGender" value="M" id="maleRadio">
+					<input type="radio" name=<?php
+						echo $user_gender;
+					?> value="M" id="maleRadio">
 					<label for="maleRadio">Male</label>
                 </td>
             </tr>
             <tr>
                 <td>Date of Birth</td>
-                <td><input type="date" name="StuDob" id="dob" oninput="validateDOB();" required></td>
+                <td><input type="date" name=<?php
+						echo $user_dob;
+					?> id="dob" oninput="validateDOB();" required></td>
             </tr>
             <tr>
 				<td>Password</td>
 				<td>
-					<input type="password" name="StuPw" id="password" placeholder="Password must be 6-8 characters" minlength="6" maxlength="8" required>
+					<input type="password" name=<?php
+						echo $user_password;
+					?> id="password" placeholder="Password must be 8-20 characters" minlength="8" maxlength="20" required>
 					<i class="bi bi-eye-slash" id="togglePassword"></i>
 				</td>
 			</tr>
@@ -115,10 +150,23 @@
 					<i class="bi bi-eye-slash" id="toggleConfirmPassword"></i>
 				</td>
 			</tr>
-            <tr>
-                <td>Student University</td>
-                <td><input type="text" name="StuUni"></td>
-            </tr>
+
+			<?php 
+
+			if ($role == 'student') {
+				echo '<tr><td>Student University</td><td><input type="text" name="StuUni"></td></tr>';
+			} else if ($role == 'lecturer') {
+				echo '<tr>
+				<td>
+					Lecturer Education Qualification
+				</td>
+				<td>
+					<input type="text" name="LecEduQual">
+				</td>
+				</tr>';
+			}
+
+			?>
         </table>
 		<div class="buttons-row">
 			<button class="submit" type="submit" name="signup">Sign up</button>

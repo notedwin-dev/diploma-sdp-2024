@@ -16,9 +16,17 @@
             $result = mysqli_query($connection, $sql);
             $try = FALSE;
 
+            $userid_or_email = '';
+
+            if (strpos($userid, '@') !== false) {
+                $userid_or_email = 'StuEmail';
+            } else {
+                $userid_or_email = 'StuID';
+            }
+
             while ($student = mysqli_fetch_array($result)) {
                 // Check if the user is a student
-                if ($student['StuID'] == $userid && $student["StuPw"] == $password) {
+                if (($student[$userid_or_email] == $userid) && $student["StuPw"] == $password) {
                     $try = TRUE;
                     $_SESSION['userid'] = $student['StuID'];
                     $_SESSION['username'] = $student['StuName'];
@@ -32,8 +40,16 @@
                 $sql = "SELECT * FROM lecturer";
                 $result = mysqli_query($connection, $sql);
 
+                
+
+                if (strpos($userid, '@') !== false) {
+                    $userid_or_email = 'LecEmail';
+                } else {
+                    $userid_or_email = 'LecID';
+                }
+
                 while ($lecturer = mysqli_fetch_array($result)) {
-                    if ($lecturer['LecID'] == $userid && $lecturer["LecPw"] == $password) {
+                    if ($lecturer[$userid_or_email] == $userid && $lecturer["LecPw"] == $password) {
                         $try = TRUE;
                         $_SESSION['userid'] = $lecturer['LecID'];
                         $_SESSION['username'] = $lecturer['LecName'];
@@ -79,12 +95,12 @@
 		<table>
 			<tr>
 				<td><img src="user.png"></td>
-				<td><input type="text" name="userid" placeholder="User ID" required></td>
+				<td><input type="text" name="userid" placeholder="User ID or email" required></td>
 			</tr>
 			<tr>
 				<td><img src="lock.png"></td>
 				<td>
-					<input type="password" name="password" id="password" placeholder="Password" maxlength="8" required>
+					<input type="password" name="password" id="password" placeholder="Password" maxlength="20" required>
 					<i class="bi bi-eye-slash" id="togglePassword"></i>
 				</td>
 			</tr>
