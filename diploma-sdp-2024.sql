@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 15, 2024 at 01:09 PM
+-- Generation Time: May 28, 2024 at 07:00 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `networkingquiz`
+-- Database: `diploma-sdp-2024`
 --
 
 -- --------------------------------------------------------
@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS `lecturer`;
 CREATE TABLE IF NOT EXISTS `lecturer` (
   `LecID` varchar(8) NOT NULL,
   `LecName` varchar(30) NOT NULL,
-  `LecPw` varchar(8) NOT NULL,
+  `LecPw` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `LecEmail` varchar(30) NOT NULL,
   `LecDob` date NOT NULL,
   `LecGender` char(1) NOT NULL,
@@ -39,15 +39,6 @@ CREATE TABLE IF NOT EXISTS `lecturer` (
   `LecType` int NOT NULL,
   PRIMARY KEY (`LecID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `lecturer`
---
-
-INSERT INTO `lecturer` (`LecID`, `LecName`, `LecPw`, `LecEmail`, `LecDob`, `LecGender`, `LecEduQua`, `LecType`) VALUES
-('L0000001', 'wan', '12345678', 'wan@gmail.com', '2011-10-19', 'F', 'Phd', 1),
-('L0153313', 'Pei Syuen', '12345678', 'ps@mail', '1987-11-19', 'F', 'Phd', 2),
-('L0040036', 'Wendy', '12345678', 'wendy@mail.com', '2009-07-22', 'F', 'Phd', 2);
 
 -- --------------------------------------------------------
 
@@ -179,7 +170,7 @@ DROP TABLE IF EXISTS `student`;
 CREATE TABLE IF NOT EXISTS `student` (
   `StuID` varchar(8) NOT NULL,
   `StuName` varchar(30) NOT NULL,
-  `StuPw` varchar(8) NOT NULL,
+  `StuPw` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `StuEmail` varchar(30) NOT NULL,
   `StuDob` date NOT NULL,
   `StuGender` char(1) NOT NULL,
@@ -192,8 +183,7 @@ CREATE TABLE IF NOT EXISTS `student` (
 --
 
 INSERT INTO `student` (`StuID`, `StuName`, `StuPw`, `StuEmail`, `StuDob`, `StuGender`, `StuUni`) VALUES
-('TP310943', 'wan', '123456', 'paolawan@gmail.com', '2000-06-01', 'F', 'APU'),
-('TP105180', 'Wan Rou', '123456', 'wr@mail', '2003-06-05', 'M', 'APU');
+('TP070698', 'Edwin Ng', 'Edwin_2404', 'tp070698@mail.apu.edu.my', '2004-04-24', 'M', 'Asia Pacific University');
 
 -- --------------------------------------------------------
 
