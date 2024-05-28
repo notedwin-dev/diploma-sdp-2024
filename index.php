@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NETWORK INSIGHT</title>
+    <title>APHUB | GAMIFIED WEB DEV QUIZ</title>
 	<?php
 		include('footer.php');
 	?>
@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="index.css">
 <div class="menu">
 		<div class="header">
-			<a>NETWORK INSIGHT</a>
+			<img src="logo.png" alt="logo" width="150px">
 		</div>
 	
 		<ul>

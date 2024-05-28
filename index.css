@@ -12,6 +12,11 @@ body {
   position: relative;
 }
 
+img {
+  /* Rounded Border Image */
+  border-radius: 10%;
+}
+
 ul {
   text-transform: uppercase;
   list-style: none;
