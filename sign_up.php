@@ -38,7 +38,7 @@
 			$user_gender = "StuGender";
 			$user_dob = "StuDob";
 			$user_password = "StuPw";
-			$user_edu = "StuEdu";
+			$user_edu = "StuUni";
 		} else if ($role == 'lecturer') {
 			$title = "Lecturer Sign Up";
 			$id_label = "Lecturer ID";
