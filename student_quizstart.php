@@ -89,10 +89,10 @@
 								//Display multiple-choice questions
 									echo "
 									$question[QuestTitle]<br>
-									<input type=radio name=$question[QuestID] value=A required>A.$question[Option1]<br>
-									<input type=radio name=$question[QuestID] value=B required>B.$question[Option2]<br>
-									<input type=radio name=$question[QuestID] value=C required>C.$question[Option3]<br>
-									<input type=radio name=$question[QuestID] value=D required>D.$question[Option4]<br>
+									<input type=radio name=$question[QuestID] value=A required>A." . htmlspecialchars($question['Option1']) . "<br>
+									<input type=radio name=$question[QuestID] value=B required>B." . htmlspecialchars($question['Option2']) ."<br>
+									<input type=radio name=$question[QuestID] value=C required>C.". htmlspecialchars($question['Option3']) ."<br>
+									<input type=radio name=$question[QuestID] value=D required>D.". htmlspecialchars($question['Option4']) ."<br>
 									<input type=hidden name=idtopic value=$idtopic>
 									<input type=hidden name=idresult value=$resultID>
 									";

@@ -45,12 +45,12 @@
 		echo '<tr>
 				<td>Question ID</td>
 				<td>:</td>
-				<td>'.$row["QuestID"].'</td>
+				<td>'.htmlspecialchars($row["QuestID"]).'</td>
 			</tr>
 			<tr>
 				<td>Question Title</td>
 				<td>:</td>
-				<td>'.$row["QuestTitle"].'</td>
+				<td>'.htmlspecialchars($row["QuestTitle"]).'</td>
 			</tr>';
 
 		switch ($row['QuestType']) {
@@ -59,22 +59,22 @@
 				echo '<tr>
 						<td>Option 1</td>
 						<td>:</td>
-						<td>'.$row["Option1"].'</td>
+						<td>'.htmlspecialchars($row["Option1"]).'</td>
 					</tr>
 					<tr>
 						<td>Option 2</td>
 						<td>:</td>
-						<td>'.$row["Option2"].'</td>
+						<td>'.htmlspecialchars($row["Option2"]).'</td>
 					</tr>
 					<tr>
 						<td>Option 3</td>
 						<td>:</td>
-						<td>'.$row["Option3"].'</td>
+						<td>'.htmlspecialchars($row["Option3"]).'</td>
 					</tr>
 					<tr>
 						<td>Option 4</td>
 						<td>:</td>
-						<td>'.$row["Option4"].'</td>
+						<td>'.htmlspecialchars($row["Option4"]).'</td>
 					</tr>';
 				break;
 
@@ -103,7 +103,12 @@
 		echo '<tr>
 				<td>Question Answer</td>
 				<td>:</td>
-				<td>'.$row["QuestAnswer"].'</td>
+				<td>'.htmlspecialchars($row["QuestAnswer"]).'</td>
+			</tr>
+			<tr>
+				<td>Question Explanation</td>
+				<td>:</td>
+				<td>'.htmlspecialchars($row["QuesAnsExplanation"]).'</td>
 			</tr>
 			<tr>
 				<td>Lecturer Name</td>
@@ -119,7 +124,7 @@
 
 	//Get question details from the database
 	$sql = "SELECT question.QuestID, question.QuestTitle, question.Option1, question.Option2, 
-			question.Option3, question.Option4, question.QuestAnswer, lecturer.LecName, topic.TopicName, question.QuestType
+			question.Option3, question.Option4, question.QuestAnswer, lecturer.LecName, topic.TopicName, question.QuestType, question.QuesAnsExplanation
 			FROM question 
 			JOIN topic ON topic.TopicID = question.TopicID
 			JOIN lecturer ON lecturer.LecID = question.LecID
