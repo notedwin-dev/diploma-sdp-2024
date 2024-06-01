@@ -14,6 +14,7 @@
 			<th>No.</th>
 			<th>Questions</th>
 			<th>Results</th>
+			<th>Explanation</th>
 		</tr>
 		<?php
 		    //Query to get the total number of approved questions for the selected topic, and the topic of the questions is not deleted as well
@@ -50,11 +51,10 @@
 					if ($type == 1) {
 						//Display options for multiple-choice questions
 						echo "
-						<input type=radio name=$question[QuestID] value='A' " . ($question['StuAnswer'] == 'A' ? 'checked' : 'disabled') . ">A.$question[Option1]<br>
-						<input type='radio' name='$question[QuestID]' value='B' " . ($question['StuAnswer'] == 'B' ? 'checked' : 'disabled') . ">B.$question[Option2]<br>
-						<input type='radio' name='$question[QuestID]' value='C' " . ($question['StuAnswer'] == 'C' ? 'checked' : 'disabled') . ">C.$question[Option3]<br>
-						<input type='radio' name='$question[QuestID]' value='D' " . ($question['StuAnswer'] == 'D' ? 'checked' : 'disabled') . ">D.$question[Option4];
-						";
+						<input type=radio name=$question[QuestID] value='A' " . ($question['StuAnswer'] == 'A' ? 'checked' : 'disabled') . ">A.". htmlspecialchars($question['Option1']). "<br>
+						<input type='radio' name='$question[QuestID]' value='B' " . ($question['StuAnswer'] == 'B' ? 'checked' : 'disabled') . ">B.". htmlspecialchars($question['Option2']). "<br>
+						<input type='radio' name='$question[QuestID]' value='C' " . ($question['StuAnswer'] == 'C' ? 'checked' : 'disabled') . ">C.". htmlspecialchars($question['Option3']). "<br>
+						<input type='radio' name='$question[QuestID]' value='D' " . ($question['StuAnswer'] == 'D' ? 'checked' : 'disabled') . ">D.". htmlspecialchars($question['Option4']) . "<br>";
 					} else if ($type == 2) {
 						//Display options for true/false questions
 						echo "
@@ -95,6 +95,7 @@
 					}
 				?>
 			</td>
+			<td class="schema"><?php echo htmlspecialchars($question['QuesAnsExplanation']); ?></td>
 		</tr>
 		<?php
 				$num = $num+1;
