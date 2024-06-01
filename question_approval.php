@@ -101,7 +101,7 @@ function questionApprove() {
 
             //Get the question details
             $sql="SELECT question.QuestID, question.QuestTitle, question.Option1, question.Option2, 
-            question.Option3, question.Option4, question.QuestAnswer, lecturer.LecName, topic.TopicName, question.QuestType
+            question.Option3, question.Option4, question.QuestAnswer, lecturer.LecName, topic.TopicName, question.QuestType, question.QuesAnsExplanation
             FROM question 
             JOIN topic ON topic.TopicID = question.TopicID
             JOIN lecturer ON lecturer.LecID = question.LecID
