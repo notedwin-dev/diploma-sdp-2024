@@ -9,7 +9,7 @@
             
 			print_r($_FILES['resfile']);
 
-			echo '<script>alert("File upload failed! Error code: ' . $_FILES['resfile']['error'] . '");
+			echo '<script>alert("File upload failed! Error code: ' . $_FILES['resfile']['error'] . ' Please try again with smaller file size PDF.");
 			window.location.href = "resource_insertform.php";
 			</script>';
             exit;
