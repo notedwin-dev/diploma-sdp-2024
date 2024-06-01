@@ -86,6 +86,10 @@ function questionApprove() {
                         <td>'.$row["QuestAnswer"].'</td>
                     </tr>
                     <tr>
+                        <td>Question Explanation</td>
+                        <td>'.$row["QuesAnsExplanation"].'</td>
+                    </tr>
+                    <tr>
                         <td>Lecturer Name</td>
                         <td>'.$row["LecName"].'</td>
                     </tr>

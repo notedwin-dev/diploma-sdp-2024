@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NETWORK INSIGHT</title>
+    <title>APHUB</title>
 </head>
 <body>
 <?php
@@ -49,7 +49,6 @@
 			$user_dob = "LecDob";
 			$user_password = "LecPw";
 			$user_edu = "LecEduQua";
-			$user_type = "LecType";
 		}
 	}
 
@@ -61,24 +60,42 @@
 		$Gender = $_POST[$user_gender];
 		$Dob = $_POST[$user_dob];
 		$Uni = $_POST[$user_edu];
+		
+
 		//Check if the password and confirm password match
 		$confirmPassword = $_POST["confirmPassword"];
 		if ($Pw != $confirmPassword) {
 			echo "<script>alert('Password and Confirm Password do not match. Please try again.')</script>";
 		} else {
+			if ($role == 'student') {
+				//Check if the student ID is already taken
+				if (isStudentIDTaken($connection, $ID)) {
+					echo "<script>alert('Student ID is already taken. Please try again.')</script>";
+					echo "<script>window.history.back();</script>";
+				} else {
+					$sql = "INSERT INTO $role VALUES('$ID','$Name','$Pw','$Email','$Dob','$Gender','$Uni')";
 
-			if ($user_type == "LecType") {
-				$sql = "INSERT INTO $role VALUES('$ID','$Name','$Pw','$Email','$Gender','$Dob','$Uni', '$user_type')";
+					if($result) {
+						echo "<script>alert('Congratulations! Your Account Has Been Successfully Created!')</script>";
+						echo "<script>window.location='sign_in.php'</script>";
+					} else {
+						echo mysqli_error($connection);
+						echo "<script>window.history.back();</script>";
+					}
+				}
+			} else if ($role == 'lecturer') {
+				$sql = "INSERT INTO $role VALUES('$ID','$Name','$Pw','$Email','$Dob','$Gender','$Uni', 2)";
+				$result = mysqli_query($connection, $sql);
+
+				if($result) {
+					echo "<script>alert('Congratulations! Your Account Has Been Successfully Created!')</script>";
+					echo "<script>window.location='sign_in.php'</script>";
+				} else {
+					echo mysqli_error($connection);
+					echo "<script>window.history.back();</script>";
+				}
 			}
-			$sql = "INSERT INTO $role VALUES('$ID','$Name','$Pw','$Email','$Dob','$Gender','$Uni')";
-			$result = mysqli_query($connection, $sql);
-			if($result) {
-				echo "<script>alert('Congratulations! Your Account Has Been Successfully Created!')</script>";
-				echo "<script>window.location='sign_in.php'</script>";
-			} else {
-				echo "<script>alert('Failed To Sign Up')</script>";
-				echo "<script>window.history.back();</script>";
-			}
+			
 		}
 	}
 ?>
@@ -156,14 +173,14 @@
 			if ($role == 'student') {
 				echo '<tr><td>Student University</td><td><input type="text" name="StuUni"></td></tr>';
 			} else if ($role == 'lecturer') {
-				echo '<tr>
+				echo "<tr>
 				<td>
 					Lecturer Education Qualification
 				</td>
 				<td>
-					<input type="text" name="LecEduQual">
+					<input type='text' name='$user_edu'>
 				</td>
-				</tr>';
+				</tr>";
 			}
 
 			?>

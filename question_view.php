@@ -79,6 +79,15 @@
 		<button class="print" onclick="window.print()">Print</button>
 		<button class="back" onclick="handleBackClick()">Back</button>
 	</div>
+	<br>
+	<center>
+	<br>
+	<br>
+	<p style="background-color: #ffffff; display: inline; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px;">Did not see your newly added questions here? This is due to the questions are pending for approval. Please check back later or contact the admin to get your questions approved.</p>
+	<br>
+	<br>
+	<p style="background-color: #ffffff; display: inline; padding-top: 5px; padding-bottom: 5px; padding-left: 10px; padding-right: 10px;">If students can't see your quiz, it is probably due to your questions are still pending for approval.</p>
+	</center>
 </div>
 
 <?php

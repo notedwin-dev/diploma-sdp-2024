@@ -4,7 +4,7 @@
 		$username=$_SESSION['username'];
 		include('footer.php');
 	?>
-    <title>Network Insight <?php echo $username;?></title>
+    <title>APHub | Home Dashboard</title>
 </head>
 <body>
 	<link rel="stylesheet" href="navbar.css">

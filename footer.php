@@ -15,5 +15,5 @@ div.foot{
 </style>
 
 <div class="foot">
-	Copyright 2023 &copy; UCDF2207ICT(SE) - Group 17
+	Copyright 2023 &copy; UCDF2207ICT(SE)
 </div>

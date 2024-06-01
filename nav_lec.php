@@ -4,13 +4,13 @@
 		$username=$_SESSION['username'];
 		include('footer.php');
 	?>
-    <title>Network Insight <?php echo $username;?></title>
+    <title>APHub | Lecturer Dashboard</title>
 </head>
 <body>
 	<link rel="stylesheet" href="navbar.css">
     <div class="menu">
         <div class="header">
-			<a href="home_lecturer.php" class="header">Network Insight<br><?php echo $username ;?></a>
+			<a href="home_lecturer.php" class="header">APHub<br><?php echo $username ;?></a>
 		</div>
 		<ul>
 			<li><a class="arrow"href="#">Topic</a>

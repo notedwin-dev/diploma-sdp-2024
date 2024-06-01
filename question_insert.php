@@ -18,6 +18,7 @@
 	$lecid = $_POST["lecid"];
 	$topicid = $_POST["topicid"];
 	$type = $_POST["type"];
+	$explanation = $_POST["answerexplanation"];
 	//Set the value of options based on the question type
 	if ($type == 1){
 		$option1 = $_POST["option1"];
@@ -41,16 +42,25 @@
 		$option4 = null;
 		$answer = $_POST['structureanswer'];
 	}
-	$sql = "INSERT INTO question (QuestTitle,Option1,Option2,Option3,Option4,QuestAnswer,LecID,TopicID,QuestType,QuestApprovalStatus)
-	VALUES('$questtitle','$option1','$option2','$option3','$option4','$answer','$lecid','$topicid','$type','N')";
+	$sql = "INSERT INTO question (QuestTitle,Option1,Option2,Option3,Option4,QuestAnswer,QuesAnsExplanation,LecID,TopicID,QuestType,QuestApprovalStatus)
+	VALUES('$questtitle','$option1','$option2','$option3','$option4','$answer','$explanation','$lecid','$topicid','$type','N')";
 	$result = mysqli_query($connection,$sql);
+
+	//Check if the question table for the topic id does not have any questions with QuestApprovalStatus = 'Y'
+	$sql = "SELECT * FROM question WHERE TopicID = '$topicid' AND QuestApprovalStatus = 'Y'";
+	$result2 = mysqli_query($connection,$sql);
 ?>
 
 <script>
 	<?php
 	if ($result == true) {
 		echo "alert('New Question Added Successfully in List of Pending Approval');";
-		echo "window.location.href = 'question_view.php?topicID=" . $topicid . "';"; //Redirect to question_view.php on success
+		if (mysqli_num_rows($result2) !== 0){
+			echo "window.location.href = 'question_view.php?topicID=" . $topicid . "';"; //Redirect to question_view.php on success
+		} else {
+			echo "window.location.href = 'question_insertform.php';"; //Redirect to question_view.php on success
+		
+		}
 	} else {
 		echo "alert('Fail to add new question');";
 		echo "window.history.back();"; //Go back to the previous page on failure

@@ -22,11 +22,9 @@
 	</div>
 	
 	<div class="container">
-		<div class="info"><!--Description of Network Insight-->
-			<h3>Networks & Networking</h3>
-			<p> Network Insight is a cutting-edge network monitoring solution that grants organizations comprehensive visibility into their network infrastructure. 
-			With real-time monitoring, traffic analysis, and robust security features, it empowers IT professionals to proactively manage and optimize network performance. 
-			The solution's historical reporting, customizable alerts, and seamless scalability facilitate strategic decision-making and efficient network optimization.<br></p>
+		<div class="info"><!--Description of APHUB-->
+			<h2>Welcome to APHub!</h2>
+			<p> APHub is a dynamic Gamified Quiz System designed for Web Development students. It turns traditional learning into an engaging and fun experience with a variety of quizzes covering essential web development topics. By integrating gamification elements like points, badges, and leaderboards, APhub motivates students to learn and improve continuously. The platform's user-friendly interface and immediate feedback help students track their progress and identify areas for improvement. Instructors can also use APhub's analytics to tailor their teaching strategies. Whether you're a beginner or advanced learner, APhub makes mastering web development enjoyable and interactive.</p>
 		</div>
 	</div>
 </body>

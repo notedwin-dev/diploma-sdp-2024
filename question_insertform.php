@@ -88,7 +88,7 @@ function goBack() {
 			<input type="hidden" name="lecid" value="<?php echo $LecID; ?>">
 			<tr>
 				<td>Question</td>
-				<td><input type="text" name="questtitle" required></td>
+				<td><textarea type="text" name="questtitle" required></textarea></td>
 			</tr>
 			
 			<tr>
@@ -148,6 +148,11 @@ function goBack() {
 				<td>Answer</td>
 				<td><textarea type="text" name="structureanswer"></textarea></td>
 			</tr>
+
+            <tr>
+                <td class="answerRow">Answer Explanation</td>
+                <td><textarea type="text" name="answerexplanation"></textarea></td>
+            </tr>
 			
 			<tr>
 				<td>Topic</td>
