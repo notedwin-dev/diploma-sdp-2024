@@ -57,7 +57,7 @@
 					<input type = "file" name="resfile" accept=".pdf" required>
 				</td>
 			</tr>
-			<tr><td colspan="2">Note: Please upload PDF files.</td></tr>
+			<tr><td colspan="2">Note: Please upload PDF files. File size limit: 2MB</td></tr>
         </table>
 		<div class="buttons-row">
 			<button class="submit" type="submit" name="insert">Upload</button>
