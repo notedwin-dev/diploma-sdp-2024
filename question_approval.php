@@ -32,45 +32,45 @@ function questionApprove() {
             //Function to display question details based on question type
             function displayQuestionDetails($row,$questid) {
                 echo '<tr>
-                        <td>Question ID</td>
-                        <td>'.$row["QuestID"].'</td>
-                    </tr>
-                    <tr>
-                        <td>Question Title</td>
-                        <td>'.$row["QuestTitle"].'</td>
-                    </tr>';
+                <td>Question ID</td>
+                <td>'.htmlspecialchars($row["QuestID"]).'</td>
+              </tr>
+              <tr>
+                <td>Question Title</td>
+                <td>'.htmlspecialchars($row["QuestTitle"]).'</td>
+              </tr>';
 
                 switch ($row['QuestType']) {
 					//For question type 1, all options are displayed
                     case 1:
                         echo '<tr>
                                 <td>Question Option 1</td>
-                                <td>'.$row["Option1"].'</td>
-                            </tr>
-                            <tr>
+                                <td>'.htmlspecialchars($row["Option1"]).'</td>
+                              </tr>
+                              <tr>
                                 <td>Question Option 2</td>
-                                <td>'.$row["Option2"].'</td>
-                            </tr>
-                            <tr>
+                                <td>'.htmlspecialchars($row["Option2"]).'</td>
+                              </tr>
+                              <tr>
                                 <td>Question Option 3</td>
-                                <td>'.$row["Option3"].'</td>
-                            </tr>
-                            <tr>
+                                <td>'.htmlspecialchars($row["Option3"]).'</td>
+                              </tr>
+                              <tr>
                                 <td>Question Option 4</td>
-                                <td>'.$row["Option4"].'</td>
-                            </tr>';
+                                <td>'.htmlspecialchars($row["Option4"]).'</td>
+                              </tr>';
                         break;
 
 					//For question type 2, only Option1 & Option2 are displayed
                     case 2:
                         echo '<tr>
                                 <td>Question Option 1</td>
-                                <td>'.$row["Option1"].'</td>
-                            </tr>
-                            <tr>
+                                <td>'.htmlspecialchars($row["Option1"]).'</td>
+                              </tr>
+                              <tr>
                                 <td>Question Option 2</td>
-                                <td>'.$row["Option2"].'</td>
-                            </tr>';
+                                <td>'.htmlspecialchars($row["Option2"]).'</td>
+                              </tr>';
                         break;
 
                     //For question type 3, no options are displayed
@@ -83,19 +83,19 @@ function questionApprove() {
 
                 echo '<tr>
                         <td>Question Answer</td>
-                        <td>'.$row["QuestAnswer"].'</td>
+                        <td>'.htmlspecialchars($row["QuestAnswer"]).'</td>
                     </tr>
                     <tr>
                         <td>Question Explanation</td>
-                        <td>'.$row["QuesAnsExplanation"].'</td>
+                        <td>'.htmlspecialchars($row["QuesAnsExplanation"]).'</td>
                     </tr>
                     <tr>
                         <td>Lecturer Name</td>
-                        <td>'.$row["LecName"].'</td>
+                        <td>'.htmlspecialchars($row["LecName"]).'</td>
                     </tr>
                     <tr>
                         <td>Topic</td>
-                        <td>'.$row["TopicName"].'</td>
+                        <td>'.htmlspecialchars($row["TopicName"]).'</td>
                     </tr>';
             }
 
